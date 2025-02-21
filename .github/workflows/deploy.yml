@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: 📂 Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fait un clone complet pour éviter le problème de shallow clone
 
       - name: 🔥 Install Heroku CLI
         run: |
