@@ -15,5 +15,5 @@ Ce repository recense les fichiers nécessaires au déploiement du dashboard (d�
 - [streamlit_app.py](streamlit_app.py) : fichier python du dashboard
 - [requirements.txt](requirements.txt), [Profile](Procfile), [setup.sh](setup.sh) : fichiers indispensables pour le déploiement via Heroku
   
-[lien vers le repository principal de ce projet](https://github.com/Trito241/Credit_default)
+[lien vers le repository principal de ce projet](https://github.com/Trito241/Credit_default) <br/>
 [lien vers le repository de l'API](https://github.com/Trito241/Credit_default/blob/main/flask_app.py)
