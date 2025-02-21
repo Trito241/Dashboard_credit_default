@@ -1,0 +1,33 @@
+name: 🚀 Deploy Streamlit on Heroku
+
+on:
+  push:
+    branches:
+      - main  # Déploiement automatique sur la branche principale
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📂 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🔥 Install Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+
+      - name: 🌍 Login to Heroku
+        run: |
+          echo "$HEROKU_API_KEY" | heroku auth:token
+          heroku container:login
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
+      - name: 🚀 Deploy to Heroku
+        run: |
+          heroku git:remote -a $HEROKU_APP_NAME
+          git push heroku main
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
